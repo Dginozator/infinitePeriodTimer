@@ -99,12 +99,14 @@ CountdownTimer.prototype.stop = function() {
 	clearInterval(this.stepInterval);
 }
 
-CountdownTimer.prototype.switch = function() {
+CountdownTimer.prototype.switch = function(p_button = null) {
 	if (this.status === this.STAT.STOP){
 		this.start();
+		if (!!p_button) p_button.style["background-color"] = "green";
 	}
 	else {
 		this.stop();
+		if (!!p_button) p_button.style["background-color"] = "red";
 	}
 }
 
@@ -162,7 +164,7 @@ function countDownTimerWrapper (p_a_minutes) {
 function initPLAYClick(countdownT) {
 	var button = document.querySelector("div.stopButtondiv");
 	button.onclick = function (e) {
-		countdownT.switch();
+		countdownT.switch(button);
 	}
 }
 
