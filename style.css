@@ -1,0 +1,29 @@
+p {
+	font-size: 24px;
+	/*color: green;*/
+}
+div {
+	font-size: 24px;
+	/*color: green;*/
+	/*color: red;*/
+	width: 128px;
+	/*height: 96px;*/
+
+	border: 1px solid #ccc;
+
+	text-align:center;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+p.stopButton {
+	font-weight: bold;
+	/*vertical-align:middle;*/
+	/*height: inherit;*/
+	/*width: inherit;*/
+	/*max-height: 100%;*/
+}
