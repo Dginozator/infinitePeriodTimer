@@ -1,8 +1,5 @@
 //---------------//Init values//-----------------
 
-const arr_minutes = [6, 6, 1];
-// const arr_minutes = [1, 1];
-
 //------------//End - Init values//--------------
 
 //-----------//CountDown functions//-------------
@@ -84,6 +81,7 @@ CountdownTimer.prototype.setPeriods = function(p_arr) {
 }
 
 CountdownTimer.prototype.start = function() {
+	this.setPeriods(getPeriods());
 	allPeriodsShow(this.a_mn_period);
 	currentPeriodShow(this.cur_period, this.a_mn_period[this.cur_period]);
 	this.status = this.STAT.PLAY;
@@ -148,12 +146,11 @@ CountdownTimer.prototype.timeoutFunc = function () {
 	}, this.a_period[this.cur_period]);
 }
 
-function countDownTimerWrapper (p_a_minutes) {
+function countDownTimerWrapper () {
 	var CountdownTimer_obj = new CountdownTimer();
 
 	initPLAYClick(CountdownTimer_obj);
 
-	CountdownTimer_obj.setPeriods(p_a_minutes);
 	CountdownTimer_obj.start();
 }
 
@@ -198,13 +195,34 @@ function getVolRange () {
 	return(result);
 }
 
+function getPeriods () {
+	var result = 0;
+	var periodsId = document.getElementById("inputPeriodsId");
+	
+	var text = periodsId.value;
+
+	result = text.match(/\d+/g);
+
+	return(result);
+}
+
 //-------------//End - Interface//---------------
+
+//-----------------//Cookies//-------------------
+
+function loadCookies(){
+	var result = 0;
+
+	return(result);
+}
+
+//--------------//End - Cookies//----------------
 
 //------------------//Main//---------------------
 
 document.addEventListener("DOMContentLoaded", function(event) {
 	initPLAYClick();
-  countDownTimerWrapper (arr_minutes);
+  countDownTimerWrapper ();
 });
 
 //---------------//End - Main//------------------
